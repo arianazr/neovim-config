@@ -33,10 +33,10 @@ require('lualine').setup {
     },
     sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { { 'filename', path = 1 } },
+        lualine_b = { { 'branch', 'diagnostics' }, { 'filename', path = 4 } },
+        lualine_c = {},
         lualine_x = {},
-        lualine_y = { 'lsp_status' },
+        lualine_y = { { 'filetype', icon_only = false }, { 'lsp_status' } },
         lualine_z = { 'location' }
     },
     inactive_sections = {
