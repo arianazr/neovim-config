@@ -1,0 +1,6 @@
+{
+    "diagnostics.globals": [
+        "loc",
+        "blink_cmp"
+    ]
+}
