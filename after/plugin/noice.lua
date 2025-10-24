@@ -15,40 +15,14 @@ require("noice").setup({
         view = "cmdline",
         format = {
             cmdline = { icon = "", lang = "vim" },
-            search_down = { icon = "searching down ->", lang = "regex" },
-            search_up = { icon = "searching up ->", lang = "regex" },
+            search_down = { icon = "(down) 󰱽", lang = "regex" },
+            search_up = { icon = "(up) 󰱽", lang = "regex" },
             filter = { icon = "", lang = "bash" },
             lua = { icon = "", lang = "lua" },
             help = { icon = "󰘥" },
         },
     },
     views = {
-        cmdline_output = {
-            position = {
-                row = "100%", -- bottom
-                col = 0,      -- left edge
-            },
-            size = {
-                width = "50%", -- optional: how wide the message area is
-                height = "auto",
-            },
-            border = {
-                style = "none", -- keep it minimal like Vim
-            },
-            win_options = {
-                winblend = 0,
-                winhighlight = {
-                    Normal = "Normal",
-                    FloatBorder = "FloatBorder",
-                },
-            },
-        },
-        popup = {
-            backend = "popup",
-            position = { row = "50%", col = "50%" },
-            size = { width = 80, height = 20 },
-            border = { style = "rounded" },
-        },
         split = {
             enter = true, -- you can focus it if you want
             backend = "popup",
@@ -74,4 +48,3 @@ require("noice").setup({
         },
     },
 })
-print("Hello from noice config")
