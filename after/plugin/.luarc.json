@@ -1,0 +1,7 @@
+{
+    "diagnostics.globals": [
+        "loc",
+        "blink_cmp",
+        "harpoon_status"
+    ]
+}
