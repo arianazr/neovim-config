@@ -18,8 +18,16 @@ return {
     --  { "rebelot/kanagawa.nvim" },
     -- { 'shaunsingh/nord.nvim' },
     -- { "ewilazarus/preto" },
-    { "blazkowolf/gruber-darker.nvim" },
-    { "rose-pine/neovim",             name = "rose-pine" },
+    {
+        "blazkowolf/gruber-darker.nvim",
+        opts = {
+            bold = false,
+            italic = {
+                strings = false,
+            },
+        },
+    },
+    { "rose-pine/neovim",                       name = "rose-pine" },
     -- { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
     -- Cursor effect
     -- {

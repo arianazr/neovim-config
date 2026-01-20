@@ -1,0 +1,7 @@
+# Ignore plugin and cache folders
+
+node_modules/
+lazy-lock.json
+*.swp
+*.swo
+*.bak
