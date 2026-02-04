@@ -16,6 +16,9 @@ vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("n", "x", "\"_x")
 
+-- Vert/Horz Split
+vim.keymap.set("n", "<leader>v", ":vs<CR>")
+vim.keymap.set("n", "<leader>h", ":sp<CR>")
 -- Source current file
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
