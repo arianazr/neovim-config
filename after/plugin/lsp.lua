@@ -54,6 +54,16 @@ end
 
 -- Default handler for all Mason-installed servers
 require("mason-lspconfig").setup_handlers({
+    ["clangd"] = function()
+        vim.lsp.config("clangd", {
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+                client.server_capabilities.documentFormattingProvider = false
+                on_attach(client, bufnr)
+            end,
+        })
+        vim.lsp.enable("clangd")
+    end,
     function(server)
         vim.lsp.config(server, {
             capabilities = capabilities,
