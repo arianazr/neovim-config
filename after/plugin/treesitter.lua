@@ -1,16 +1,13 @@
--- treesitter.lua
+require("nvim-treesitter").setup({})
 
+require("nvim-treesitter").install({
+    "lua", "vim", "vimdoc", "query",
+    "markdown", "markdown_inline",
+    "c_sharp", "php", "html", "javascript",
+})
 
--- Main treesitter config
-require("nvim-treesitter.configs").setup({
-    ensure_installed = { "lua", "rust", "cpp", "c", "javascript", "typescript" },
-    sync_install = false,
-    auto_install = true,
-
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-
-    indent = { enable = true },
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+        pcall(vim.treesitter.start)
+    end,
 })
