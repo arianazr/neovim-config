@@ -39,7 +39,6 @@ vim.opt.expandtab = true
 vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 
-
 -- Tree-sitter folding setup
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
@@ -48,3 +47,11 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "o", "r" })
+    end,
+})
