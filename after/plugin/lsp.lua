@@ -2,7 +2,7 @@
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "clangd", "gopls" },
+    ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "clangd", "gopls", "jdtls" },
     automatic_installation = true,
 })
 
@@ -110,3 +110,21 @@ require("mason-lspconfig").setup_handlers({
         vim.lsp.enable("rust_analyzer")
     end,
 })
+
+-- jdtls: per-project workspace + Lombok agent
+vim.lsp.config("jdtls", {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = function(dispatchers, config)
+        local root = config.root_dir or vim.fn.getcwd()
+        local data = vim.fn.stdpath("cache") .. "/jdtls/workspace/"
+            .. vim.fs.basename(root) .. "_" .. vim.fn.sha256(root):sub(1, 8)
+        local lombok = vim.fn.stdpath("data") .. "/mason/packages/jdtls/lombok.jar"
+        return vim.lsp.rpc.start({
+            "jdtls",
+            "--jvm-arg=-javaagent:" .. lombok,
+            "-data", data,
+        }, dispatchers)
+    end,
+})
+vim.lsp.enable("jdtls")

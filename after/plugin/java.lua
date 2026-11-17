@@ -1,0 +1,22 @@
+-- return {
+--     cmd = function(dispatchers, config)
+--         local root = config.root_dir or vim.fn.getcwd()
+--         local id = vim.fs.basename(root) .. "_" .. vim.fn.sha256(root):sub(1, 8)
+--         local data = vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. id
+--         local lombok = vim.fn.stdpath("data") .. "/mason/packages/jdtls/lombok.jar"
+
+--         local cmd = { "jdtls", "-data", data }
+--         if vim.uv.fs_stat(lombok) then
+--             table.insert(cmd, "--jvm-arg=-javaagent:" .. lombok)
+--         end
+--         return vim.lsp.rpc.start(cmd, dispatchers)
+--     end,
+--     filetypes = { "java" },
+--     root_dir = function(bufnr, on_dir)
+--         -- put the Gradle markers first so a nested .git doesn't win
+--         local markers = { "settings.gradle", "settings.gradle.kts", "gradlew", "build.gradle", "build.gradle.kts",
+--             "pom.xml", "mvnw", ".git" }
+--         local root = vim.fs.root(bufnr, markers)
+--         on_dir(root or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
+--     end,
+-- }

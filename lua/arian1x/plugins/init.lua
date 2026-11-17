@@ -14,6 +14,7 @@ return {
             },
         },
     },
+    { "mfussenegger/nvim-jdtls", ft = "java" },
     -- Color scheme
     --  { "rebelot/kanagawa.nvim" },
     -- { 'shaunsingh/nord.nvim' },
@@ -27,7 +28,7 @@ return {
             },
         },
     },
-    { "rose-pine/neovim",                       name = "rose-pine" },
+    { "rose-pine/neovim",        name = "rose-pine" },
     -- { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
     -- Cursor effect
     -- {
